@@ -1,0 +1,12 @@
+﻿@model ProjectViewModel
+
+<h1>List Project</h1>
+
+<ul>
+    @foreach (var projectName in Model.ProjectNames)
+    {
+        <li>
+            <a href="/Project/@projectName">@projectName</a>
+        </li>
+    }
+</ul>

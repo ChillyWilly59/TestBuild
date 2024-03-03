@@ -1,0 +1,41 @@
+﻿@model TestBuild.Model.ResponseTime
+
+@{
+    var projectNames = new List<string> { "TotalChats", "Duration", "Ratings","Tags" };
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <div class="container">
+        <h2>Response Time</h2>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Count</th>
+                    <th>Response Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var record in Model.Records)
+                {
+                    <tr>
+                        <td>@record.Key</td>
+                        <td>@record.Value.Count</td>
+                        <td>@record.Value.Response_time</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @foreach (var projectName in projectNames)
+    {
+        <a href="/project/@projectName" class="btn btn-primary">@projectName Project</a>
+    }
+    <a href="/home" class="btn btn-primary">Back to Main</a>
+</body>
+</html>
